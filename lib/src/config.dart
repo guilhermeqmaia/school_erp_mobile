@@ -1,3 +1,14 @@
+import 'package:flutter/foundation.dart';
+
 class Config {
-  static const String apiBaseUrl = "http://192.168.100.20:3000/";
+  static get apiBaseUrl {
+    if (_apiBaseUrl.isEmpty) {
+      debugPrint(
+          "Não é possível executar a aplicação sem a variável de ambiente definida/n ${StackTrace.current}");
+      throw "";
+    }
+    return _apiBaseUrl;
+  }
+
+  static const String _apiBaseUrl = "";
 }
